@@ -1,0 +1,6 @@
+## Interface: 11302
+## Title: |cFFFF8080AB|rReport v1.0
+## Author: Helvete (helvetetv@gmail.com)
+## Notes: Small GUI for reporting incoming in AB
+## SavedVariables: 
+ABReport.lua
