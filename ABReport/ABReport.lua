@@ -2,7 +2,6 @@
 
 -- report inc keybidning doesnt work
 -- reset location command
--- make toggle show hide
 
 
 -- CONFIG START
@@ -11,7 +10,7 @@ local ABReport_ReportTime = 1.5; -- delay in seconds before message is posted
 
 -- CONFIG END
 
-SLASH_AR1= "/AR";
+SLASH_ABR1= "/ABR";
 
 --[[
 
@@ -38,14 +37,19 @@ local ABReport_LastClickTime = 0;
 local ABReport_Enemies = 0;
 local ABReport_DoReport = false;
 local selectedLocation = false;
+local ABReport_Location = nil;
 
-SlashCmdList["AR"] = function(args)
-	ABReport_Count(nil);
+SlashCmdList["ABR"] = function(args)
+	if args == "show" then
+		ABRFrame:Show();
+	elseif args == "hide" then
+		ABRFrame:Hide();
+	else
+		print("[ABr] Available commands: show, hide");
+	end
 end;
 
 function ABReport_Count(location)
-	print(location);
-	print(ABReport_Location);
 
 	if location == ABReport_Location then
 		ABReport_Enemies = ABReport_Enemies + 1;
@@ -53,7 +57,6 @@ function ABReport_Count(location)
 		ABReport_Enemies = 1;
 	end
 
-	print("ABReport_Enemies: "..ABReport_Enemies);
 	ABReport_Location = location
 	ABReport_LastClickTime = time();
 	ABReport_DoReport = true;
@@ -66,7 +69,8 @@ end
 
 function ABReport_OnUpdate()
 
-counterText(ABReport_Enemies);
+
+	counterText(ABReport_Enemies);
 
 	if not ABReport_Location then
 		ABReport_Enemies = 0;
