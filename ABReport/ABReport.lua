@@ -112,6 +112,7 @@ ABReport_frame:EnableMouse(true);
 ABReport_frame:RegisterForDrag("LeftButton");
 ABReport_frame:SetScript("OnDragStart", ABReport_frame.StartMoving);
 ABReport_frame:SetScript("OnDragStop", ABReport_frame.StopMovingOrSizing);
+ABReport_frame:SetClampedToScreen(true);
 
 
 
