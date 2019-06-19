@@ -9,7 +9,7 @@ To report safe location, click location first and then Safe button.
 
 Cancel as you might have figured out cancels the message to be printed, incase of missclick.
 
-
+/ABR show/hide to show or hide frame
 
 TODO:
 
